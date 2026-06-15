@@ -53,6 +53,7 @@ I learned to use a **worker pool** ( 8 threads here ), passing a struct as args.
 The counter is in the struct, and a function with a mutex update the counter for nexts iterations.  
 Each iterations setup a socket and try connect to the port and them print when the connect() is a success.
 
+---
 
 #### Memory leaks:
 Tested by:
@@ -62,7 +63,6 @@ valgrind --leak-check=full ./prog 127.0.0.1 1 1000
 valgrind --tool=helgrind   ./prog 127.0.0.1 1 1000
 ```
 
----
 
 #### Limitations: 
 
