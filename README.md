@@ -7,6 +7,8 @@ For learn:
 - threads 
 - concurrence race (mutex)
 
+---
+
 ### How to build 
 
 ```bash 
@@ -21,11 +23,12 @@ gcc -Wall -Wextra -pedantic -g -pthread scan.c main.c -o prog
 - `-pthread` flag is required for use the lib.
 
 
+---
 
 ### How to run
 
 Usage:
-```bash 
+```
 ./prog <host> [start_port] [end_port]
 ```
 
@@ -42,6 +45,7 @@ Usage:
 
 Only open port are printed.
 
+---
 
 ### How it work 
 
@@ -50,7 +54,7 @@ The counter is in the struct, and a function with a mutex update the counter for
 Each iterations setup a socket and try connect to the port and them print when the connect() is a success.
 
 
-#### Memory leaks 
+#### Memory leaks:
 Tested by:
 
 ```bash
@@ -58,7 +62,9 @@ valgrind --leak-check=full ./prog 127.0.0.1 1 1000
 valgrind --tool=helgrind   ./prog 127.0.0.1 1 1000
 ```
 
-#### Limitations
+---
+
+#### Limitations: 
 
 This is a V2 project, the V1 was just very simple sequencial socket calls.  
 
@@ -68,9 +74,9 @@ This is a V2 project, the V1 was just very simple sequencial socket calls.
 - No port range validation for now ( trust the user, bad idea! ).
 
 
-#### Structure
+#### Structure:
 
-```bash 
+```
 scan.h  --> declarations usefuls for main.c only
 scan.c  --> declarations for static functions + all implementations
 main.c  --> arguments parsing and orchestration ( threads )
